@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A Very Important Date 💌</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap');
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:'DM Sans',sans-serif;background:linear-gradient(135deg,#fff5f7,#ffe7ee);color:#4a2631;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background-image:radial-gradient(#fff 1.5px,transparent 1.5px);background-size:22px 22px;opacity:.45;pointer-events:none}
+.wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px;position:relative}
+.card{width:min(680px,100%);background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.95);box-shadow:0 25px 70px rgba(126,53,76,.18);border-radius:32px;padding:42px 30px;text-align:center;position:relative;overflow:hidden;backdrop-filter:blur(10px)}
+.spark{position:absolute;animation:float 6s ease-in-out infinite;font-size:22px;opacity:.65}.s1{left:8%;top:12%}.s2{right:9%;top:20%;animation-delay:1s}.s3{left:14%;bottom:13%;animation-delay:2s}.s4{right:14%;bottom:10%;animation-delay:3s}
+@keyframes float{50%{transform:translateY(-12px) rotate(8deg)}}
+.eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:#b55c78}
+h1{font-family:'Playfair Display',serif;font-size:clamp(38px,9vw,64px);line-height:1.02;margin:16px 0;color:#7e304d}
+h2{font-family:'Playfair Display',serif;font-size:clamp(30px,7vw,46px);margin:12px 0;color:#7e304d}
+p{font-size:17px;line-height:1.65;margin:14px auto;max-width:540px}.tiny{font-size:13px;color:#9b6878}
+button{border:0;border-radius:999px;padding:15px 25px;font:700 16px 'DM Sans';cursor:pointer;transition:.25s;box-shadow:0 10px 25px rgba(126,48,77,.16)}
+.primary{background:#8e3656;color:white}.primary:hover{transform:translateY(-2px) scale(1.02)}
+.ghost{background:#fff0f4;color:#8e3656}.buttons{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:28px;min-height:70px}
+.reason{display:grid;gap:10px;text-align:left;max-width:480px;margin:24px auto}.reason div{background:#fff5f7;border-radius:16px;padding:12px 15px}.reason b{color:#8e3656}
+.hidden{display:none}.fade{animation:fade .5s ease}@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.reveal{background:linear-gradient(135deg,#fff,#fff2f6);border-radius:24px;padding:25px;margin-top:24px}.detail{margin:10px 0;font-size:17px}.detail strong{color:#8e3656}
+.heart{font-size:54px;animation:beat 1.1s infinite}@keyframes beat{50%{transform:scale(1.13)}}
+#no{position:relative}.confetti{position:fixed;top:-20px;font-size:20px;animation:fall 3.2s linear forwards;z-index:20}@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="wrap"><main class="card">
+<div class="spark s1">♡</div><div class="spark s2">✦</div><div class="spark s3">♡</div><div class="spark s4">✧</div>
+<section id="s1" class="fade">
+<div class="eyebrow">A very important notice</div>
+<h1>Shreyas,<br>you've been summoned. 💌</h1>
+<p>There is an extremely serious matter that requires your immediate attention.</p>
+<p class="tiny">No, you cannot postpone this meeting. I've already decided. 😌</p>
+<button class="primary" onclick="next(1)">Okay… what? 👀</button>
+</section>
+
+<section id="s2" class="hidden fade">
+<div class="eyebrow">A formal statement</div>
+<h2>Before we proceed…</h2>
+<p>I would like to acknowledge a few things about your girlfriend.</p>
+<div class="reason">
+<div>☑️ Sometimes <b>too serious</b></div>
+<div>☑️ Occasionally <b>dramatic</b> for no reason</div>
+<div>☑️ May accidentally take your jokes personally 🙈</div>
+<div>☑️ Still learning to <b>listen better</b></div>
+<div>☑️ But is also <b>very, very fond of you</b> ❤️</div>
+</div>
+<button class="primary" onclick="next(2)">Continue →</button>
+</section>
+
+<section id="s3" class="hidden fade">
+<div class="heart">♡</div>
+<div class="eyebrow">The proposed solution</div>
+<h2>We need a date. 🥺</h2>
+<p>Just you and me. Good food. Lots of laughing. Zero unnecessary fighting. And me trying very hard to be your fun girlfriend. 😂</p>
+<p><b>So… will you go on a date with me?</b></p>
+<div class="buttons">
+<button class="primary" onclick="yes()">YES ❤️</button>
+<button id="no" class="ghost" onclick="nope()">NO 😈</button>
+</div>
+<p id="tease" class="tiny"></p>
+</section>
+
+<section id="s4" class="hidden fade">
+<div class="heart">💗</div>
+<div class="eyebrow">Application approved</div>
+<h2>YAAAAAY! 🎉</h2>
+<p>Your date application has been officially accepted.</p>
+<p>But there is one tiny problem…</p>
+<p><b>You still don't know where or when. 👀</b></p>
+<button class="primary" onclick="next(4)">Reveal my fate ✨</button>
+</section>
+
+<section id="s5" class="hidden fade">
+<div class="eyebrow">Official date invitation</div>
+<div class="heart">💗</div>
+<h2>It's a date. ❤️</h2>
+<p>I know you're busy, so I'm not going to steal a date from your calendar or decide where we're going.</p>
+<div class="reveal">
+<p style="font-family:'Playfair Display',serif;font-size:28px;line-height:1.35;color:#7e304d;margin:4px auto 14px"><b>You decide the place and time.<br>I'll be there. ❤️</b></p>
+<p style="margin-bottom:4px">That's it. That's the invitation. 🥺</p>
+</div>
+<p style="margin-top:24px">You pick <b>when</b>.<br>You pick <b>where</b>.<br>I just want some time with <b>you</b>. 💕</p>
+<p class="tiny">P.S. The “no” option was purely decorative anyway. 😌💌</p>
+</section>
+</main></div>
+<script>
+let noCount=0;
+function next(n){document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));document.getElementById('s'+(n+1)).classList.remove('hidden')}
+function nope(){
+ noCount++;
+ const b=document.getElementById('no'), t=document.getElementById('tease');
+ const msgs=["Hmm… wrong button 😂","Nice try, boyfriend.","The NO button appears to be broken. 🤭","Why are you fighting destiny?","Okay, this is getting embarrassing for you. 😭","NO has officially left the chat."];
+ t.textContent=msgs[Math.min(noCount-1,msgs.length-1)];
+ b.textContent=noCount>3?"YES? 😇":"NO 😈";
+ b.style.position='fixed';
+ const pad=70; b.style.left=(Math.random()*(innerWidth-pad*2)+pad)+'px'; b.style.top=(Math.random()*(innerHeight-pad*2)+pad)+'px';
+ if(noCount>5){b.onclick=yes}
+}
+function yes(){document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));document.getElementById('s4').classList.remove('hidden');confetti()}
+function confetti(){for(let i=0;i<45;i++){let e=document.createElement('div');e.className='confetti';e.textContent=['❤️','💗','✨','♡','🌸'][Math.floor(Math.random()*5)];e.style.left=Math.random()*100+'vw';e.style.animationDelay=Math.random()*1.2+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),4000)}}
+</script>
+</body>
+</html>
